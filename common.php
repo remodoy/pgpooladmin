@@ -76,6 +76,11 @@ if (! defined('_PGPOOL2_LANG') ||
     errorPage('e7');
 }
 
+// new setting, default is 5
+if (! defined('_PGPOOL2_CONNECT_TIMEOUT')) {
+    define('_PGPOOL2_CONNECT_TIMEOUT', 5);
+}
+
 /**
  * Create message catalog list
  */
@@ -156,6 +161,7 @@ function NodeActive($nodeNum)
                        $params['health_check_database'] : 'template1',
         'user'     => $params['health_check_user'],
         'password' => $params['health_check_password'],
+        'connect_timeout' => _PGPOOL2_CONNECT_TIMEOUT
     ));
 
     if ($conn == FALSE) {
@@ -186,6 +192,7 @@ function NodeStandby($nodeNum)
         'dbname'   => 'template1',
         'user'     => $params['sr_check_user'],
         'password' => $params['sr_check_password'],
+        'connect_timeout' => _PGPOOL2_CONNECT_TIMEOUT,
     ));
 
     if ($conn == FALSE) {
