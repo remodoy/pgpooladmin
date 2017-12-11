@@ -83,7 +83,7 @@
           <th><label for="ConnectTimeout">{$message.strPgConnectTimeout|escape}</label>
             (integer)
             </th>
-          <td>The connect timeout for postgresql connections when checking if packend is alive or not. </td></tr>
+          <td>The connect timeout for postgresql connections when checking if backend is alive or not. </td></tr>
       </tbody>
     </table>
   <p>Finally, The update button is renewed pushing.</p>
